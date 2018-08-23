@@ -1,0 +1,31 @@
+{
+  "name": "beachrnr-inventory-db",
+  "version": "1.0.0",
+  "description": "db for beachrnr's inventory",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "test",
+    "server-dev": "node data/index.js",
+    "start": "node data/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoeyikemoto/beachrnr-inventory-db.git"
+  },
+  "author": "Zoey Ikemoto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoeyikemoto/beachrnr-inventory-db/issues"
+  },
+  "homepage": "https://github.com/zoeyikemoto/beachrnr-inventory-db#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0",
+    "sequelize": "^4.38.0",
+    "webpack": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
