@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "server-dev": "node data/index.js",
-    "start": "node data/index.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",

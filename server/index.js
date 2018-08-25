@@ -4,7 +4,7 @@ const app = express();
 const inventory = require('../data/mockpagedetail');
 const db = require('../data/index')
 
-db.connect()
+db.connect();
 
 db.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
   if (err) throw err
