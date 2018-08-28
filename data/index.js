@@ -3,11 +3,18 @@ const queries = require('./queries');
 
 var connection = mysql.createConnection({
   host: "localhost",
-  user: "giraffe",
-  password: "student",
+  user: "beachrnr",
+  password: "giraffe",
   database: "inventory",
   multipleStatements: true
 });
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "giraffe",
+//   password: "student",
+//   database: "inventory",
+//   multipleStatements: true
+// });
 
 
 connection.connect(function(err) {
@@ -19,11 +26,19 @@ connection.connect(function(err) {
 });
 
 connection.query(queries.createDB());
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
-});
 
-connection.end();
+
+
+module.exports.createListing = (listing, cb) => {
+    connection.query('INSERT INTO listings SET ?', listing, (err, results, fields) => {
+      err ? cb(err, null) : cb(null, results);
+    });
+};
+
+module.exports.deleteListing = (listingId, cb) => {
+    connection.query('DELETE FROM listings WHERE id = ?', listingId, (err, results, fields) => {
+      err ? cb(err, null) : cb(null, results);
+    });
+};
+
 module.exports.connection = connection;
-
