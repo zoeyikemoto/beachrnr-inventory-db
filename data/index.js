@@ -30,14 +30,23 @@ connection.query(queries.createDB());
 
 
 module.exports.createListing = (listing, cb) => {
-    connection.query('INSERT INTO listings SET ?', listing, (err, results, fields) => {
-      err ? cb(err, null) : cb(null, results);
+    connection.query('INSERT INTO listings SET ?', listing, (err, result, fields) => {
+      err ? cb(err, null) : cb(null, result);
     });
 };
 
 module.exports.deleteListing = (listingId, cb) => {
-    connection.query('DELETE FROM listings WHERE id = ?', listingId, (err, results, fields) => {
-      err ? cb(err, null) : cb(null, results);
+    connection.query('DELETE FROM listings WHERE id = ?', listingId, (err, result, fields) => {
+      err ? cb(err, null) : cb(null, result);
+    });
+};
+
+module.exports.fetchListing = (listingId, cb) => {
+    connection.query('SELECT * FROM listings WHERE id = ?', listingId, (err, result, fields) => {
+      err ? cb(err, null) : Object.keys(result).forEach(function(key) {
+        var row = result[key];
+        console.log(row);
+     });
     });
 };
 
