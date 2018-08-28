@@ -21,6 +21,7 @@ module.exports = {
         property_type         VARCHAR(50) NOT NULL ,
         room_type             VARCHAR(50) NOT NULL ,
         bedrooms              TINYINT ,
+        baths                 TINYINT ,
         beds                  TINYINT ,
         guests                TINYINT ,
         unitPrice             DECIMAL(7,2) NOT NULL ,

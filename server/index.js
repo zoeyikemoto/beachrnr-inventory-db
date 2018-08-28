@@ -2,14 +2,12 @@ const express = require('express');
 
 const app = express();
 const inventory = require('../data/mockpagedetail');
-const db = require('../data/index')
+const db = require('../data/index');
+const testListing = require('./testlisting');
 
+db.createListing(testListing, ()=> {return 1;});
 
-db.connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  if (err) throw err
-
-  console.log('The solution is: ', rows[0].solution)
-})
+db.deleteListing(1, ()=> {return 1;});
 
 db.connection.end();
 
